@@ -1,0 +1,248 @@
+/* Navigation link styles */
+.nav-link {
+  position: relative;
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px; /* little below text */
+  width: 0;
+  height: 2px;
+  background-color:#008680;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #000000;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Hero section text */
+.hero-text {
+  flex: 1;
+  max-width: 58%; /* keeps text within the red box area */
+  animation: fadeInLeft 2.0s ease forwards;
+}
+
+.brand-heading {
+  font-size: 3.5vw;
+  font-weight: bold;
+  color: #000000; /* teal */
+  margin: 11rem 1rem 1rem 0;
+  position: relative;
+  display: inline-block;
+  line-height: 1.2;
+}
+
+/* Underline animation */
+.brand-heading::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 4px;
+  background: linear-gradient(90deg, #800d07, #008680);
+  transition: width 0.8s ease;
+}
+.brand-heading:hover::after {
+  width: 100%;
+}
+
+.brand-sub {
+  font-size: 1.6vw;
+  color: #000000ff;
+  margin: 0;
+  opacity: 0;
+  animation: fadeInUp 2s ease 0.8s forwards;
+  letter-spacing: 1px;
+}
+
+/* Animations */
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-50px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Logo animation */
+.brand-m .m-left, 
+.brand-m .m-right {
+  stroke-width: 18;
+  transition: stroke 0.8s ease-in-out, 
+              stroke-width 0.8s ease-in-out, 
+              filter 0.8s ease-in-out;
+}
+
+/* Gradient stops default transition */
+.left-stop1,
+.left-stop2,
+.right-stop1,
+.right-stop2 {
+  transition: stop-color 0.8s ease-in-out;
+}
+
+/* Left stroke gradient animation on hover */
+.brand-m:hover .left-stop1 {
+  stop-color: #800d07;
+}
+.brand-m:hover .left-stop2 {
+  stop-color: #ffb3a7;
+}
+
+/* Right stroke gradient animation on hover */
+.brand-m:hover .right-stop1 {
+  stop-color: #00615c;
+}
+.brand-m:hover .right-stop2 {
+  stop-color: #a7f3f0;
+}
+
+/* Stroke width + glow on hover */
+.brand-m:hover .m-left,
+.brand-m:hover .m-right {
+  stroke-width: 22;
+  filter: drop-shadow(0px 0px 6px rgba(0, 134, 128, 0.6))
+          drop-shadow(0px 0px 6px rgba(128, 13, 7, 0.5));
+}
+
+/* Wave background section */
+.wave-section {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  overflow: hidden;
+  background: #ffffffff; /* white area above wave */
+}
+.wave {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Client marquee wrapper */
+.client-marquee {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  background: transparent;
+  padding: 3rem 0;
+}
+
+.client-track {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: scrollClients 45s linear infinite;
+}
+
+.client-track img {
+  height: 120px;
+  width: auto;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  object-fit: contain;
+  padding: 10px;
+  border-radius: 20px;
+  border-color: #800d07;
+  border-style: double;
+}
+
+.client-track img:hover {
+  filter: grayscale(0%) brightness(1);
+  transform: scale(1.2);
+}
+
+@keyframes scrollClients {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Duplicate track automatically */
+.client-track::after {
+  content: "";
+  display: flex;
+  gap: 2rem;
+}
+
+.client-track::after {
+  content: attr(data-content);
+}
+
+/* End of client marquee styles */
+
+/* BackgroundSection.css */
+
+/* Hero background container */
+.background-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+
+  /* Diagonal gradient: top-left teal → bottom-right red */
+  background: linear-gradient(75deg, #00615c 0%, #8b1e2d 100%);
+}
+
+/* Blurred bubbles */
+.background-container::before,
+.background-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  z-index: 1;
+}
+
+/* Teal bubble (upper-left corner) */
+.background-container::before {
+  width: 450px;
+  height: 450px;
+  background: #800d07;
+  top: -120px;
+  left: -120px;
+}
+
+/* Red bubble (bottom-right corner) */
+.background-container::after {
+  width: 500px;
+  height: 500px;
+  background: #800d07;
+  bottom: -150px;
+  right: -150px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .background-container::before {
+    width: 300px;
+    height: 300px;
+    filter: blur(80px);
+  }
+
+  .background-container::after {
+    width: 350px;
+    height: 350px;
+    filter: blur(80px);
+  }
+}
