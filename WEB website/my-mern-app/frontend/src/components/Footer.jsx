@@ -1,138 +1,43 @@
 import React from "react";
- 
+import "./Footer.css";
+
 function Footer() {
   return (
-    <footer
-      style={{
-        background: "linear-gradient(90deg, #004d40 0%, #00695c 100%)",
-        padding: "3rem 1rem 1rem",
-        width: "100%",
-        color: "#fff",
-        boxShadow: "0 -4px 12px rgba(0,0,0,0.15)",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          gap: "2.5rem",
-          textAlign: "left",
-        }}
-      >
+    <footer className="site-footer">
+      <div className="site-container footer-inner">
 {/* Logo + Social */}
-          <div style={{ flex: "1 1 280px" }}>
-            <img
-              src="maieutic1-logo.png"
-              alt="Maieutic Logo"
-              style={{ width: "240px", marginBottom: "1.5rem" }}
-            />
-            <p style={{ fontSize: "0.95rem", lineHeight: "1.6", opacity: 0.9 }}>
-              Empowering education through innovation and technology-driven solutions.
-            </p>
-            <div
-              style={{ display: "flex", gap: "0.8rem", marginTop: "1rem" }}
-            >
-              <a
-                href="https://www.facebook.com/Maieuticedutech/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: "1.2rem",
-                  color: "#004d40",
-                  background: "#fff",
-                  borderRadius: "50%",
-                  width: "38px",
-                  height: "38px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transition: "0.3s"
-                }}
-              >
+          <div className="footer-col logo">
+            <img src="maieutic1-logo.png" alt="Maieutic Logo" className="footer-logo" />
+            <p className="footer-text">Empowering education through innovation and technology-driven solutions.</p>
+            <div className="social-links">
+              <a href="https://www.facebook.com/Maieuticedutech/" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a
-                href="https://in.linkedin.com/company/maieuticedutech"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: "1.2rem",
-                  color: "#004d40",
-                  background: "#fff",
-                  borderRadius: "50%",
-                  width: "38px",
-                  height: "38px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transition: "0.3s"
-                }}
-              >
+              <a href="https://in.linkedin.com/company/maieuticedutech" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a
-                href="https://www.instagram.com/maieutic2018/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  fontSize: "1.2rem",
-                  color: "#004d40",
-                  background: "#fff",
-                  borderRadius: "50%",
-                  width: "38px",
-                  height: "38px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  transition: "0.3s"
-                }}
-              >
+              <a href="https://www.instagram.com/maieutic2018/" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-instagram"></i>
               </a>
             </div>
           </div>
  
           {/* Explore */}
-          <div style={{ flex: "1 1 200px" }}>
-            <h3
-              style={{
-                fontWeight: "bold",
-                marginBottom: "1rem",
-                borderBottom: "2px solid #fff",
-                display: "inline-block",
-                paddingBottom: "0.3rem",
-                fontSize: "1.1rem"
-              }}
-            >
-              EXPLORE
-            </h3>
-            <ul style={{ listStyle: "none", padding: 0, lineHeight: "2" }}>
-              <li><a href="#" style={{ color: "#fff", textDecoration: "none" }}>Home</a></li>
-              <li><a href="#" style={{ color: "#fff", textDecoration: "none" }}>Management</a></li>
-              <li><a href="#" style={{ color: "#fff", textDecoration: "none" }}>Portfolio</a></li>
-              <li><a href="#" style={{ color: "#fff", textDecoration: "none" }}>Gallery</a></li>
-              <li><a href="#" style={{ color: "#fff", textDecoration: "none" }}>Career</a></li>
-              <li><a href="#" style={{ color: "#fff", textDecoration: "none" }}>Internships</a></li>
+          <div className="footer-col explore">
+            <h3 className="footer-title">EXPLORE</h3>
+            <ul className="footer-list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Management</a></li>
+              <li><a href="#">Portfolio</a></li>
+              <li><a href="#">Gallery</a></li>
+              <li><a href="#">Career</a></li>
+              <li><a href="#">Internships</a></li>
             </ul>
           </div>
  
           {/* Contact */}
-          <div style={{ flex: "1 1 250px" }}>
-            <h3
-              style={{
-                fontWeight: "bold",
-                marginBottom: "1rem",
-                borderBottom: "2px solid #fff",
-                display: "inline-block",
-                paddingBottom: "0.3rem",
-                fontSize: "1.1rem"
-              }}
-            >
-              CONTACT
-            </h3>
+          <div className="footer-col contact">
+            <h3 className="footer-title">CONTACT</h3>
             <p style={{ marginBottom: "0.8rem" }}>
               <b>India:</b> +91 9663727955 <br /> +91 8035893194
             </p>
@@ -142,19 +47,9 @@ function Footer() {
             <p style={{ marginBottom: "0.8rem" }}>
               <b>Email:</b>
               <br />
-              <a
-                href="mailto:info@maieuticedutech.com"
-                style={{ color: "#fff", textDecoration: "underline" }}
-              >
-                info@maieuticedutech.com
-              </a>
+              <a href="mailto:info@maieuticedutech.com">info@maieuticedutech.com</a>
               <br />
-              <a
-                href="mailto:ravishankara.b@maieuticedutech.com"
-                style={{ color: "#fff", textDecoration: "underline" }}
-              >
-                ravishankara.b@maieuticedutech.com
-              </a>
+              <a href="mailto:ravishankara.b@maieuticedutech.com">ravishankara.b@maieuticedutech.com</a>
             </p>
             <p>
               <b>Address:</b>
@@ -167,19 +62,7 @@ function Footer() {
         </div>
  
         {/* Bottom Bar */}
-        <div
-          style={{
-            textAlign: "center",
-            marginTop: "2.5rem",
-            fontSize: "0.9rem",
-            color: "#eee",
-            borderTop: "1px solid rgba(255, 255, 255, 0.3)",
-            paddingTop: "1rem",
-            letterSpacing: "0.5px"
-          }}
-        >
-          © 2025 Maieutic Edutech Pvt Ltd — All Rights Reserved
-        </div>
+        <div className="footer-bottom">© 2025 Maieutic Edutech Pvt Ltd — All Rights Reserved</div>
       </footer>
   );
 }

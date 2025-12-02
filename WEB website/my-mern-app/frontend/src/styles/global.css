@@ -1,31 +1,4 @@
-/* Navigation link styles */
-.nav-link {
-  position: relative;
-  color: #000000;
-  text-decoration: none;
-  font-size: 1.2rem;
-  font-weight: 500;
-  transition: color 0.3s ease-in-out;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -4px; /* little below text */
-  width: 0;
-  height: 2px;
-  background-color:#008680;
-  transition: width 0.3s ease-in-out;
-}
-
-.nav-link:hover {
-  color: #000000;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
+/* Navigation styles have been moved to `components/Header.css` */
 
 /* Hero section text */
 .hero-text {
@@ -119,23 +92,6 @@
           drop-shadow(0px 0px 6px rgba(128, 13, 7, 0.5));
 }
 
-/* Wave background section */
-.wave-section {
-  position: relative;
-  width: 100%;
-  height: 500px;
-  overflow: hidden;
-  background: #ffffffff; /* white area above wave */
-}
-.wave {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-
 /* Client marquee wrapper */
 .client-marquee {
   position: relative;
@@ -158,9 +114,6 @@
   transition: transform 0.3s ease, filter 0.3s ease;
   object-fit: contain;
   padding: 10px;
-  border-radius: 20px;
-  border-color: #800d07;
-  border-style: double;
 }
 
 .client-track img:hover {
@@ -188,9 +141,6 @@
   content: attr(data-content);
 }
 
-/* End of client marquee styles */
-
-/* BackgroundSection.css */
 
 /* Hero background container */
 .background-container {
@@ -245,4 +195,26 @@
     height: 350px;
     filter: blur(80px);
   }
+}
+
+/* Shared container to keep page sections consistent */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Use `.site-container` for main centered content across pages */
+.site-container {
+  width: 100%;
+  max-width: 1200px; /* adjust if your design system uses a different width */
+  margin: 0 auto;
+  padding: 0 1rem; /* horizontal gutter consistent with footer padding */
+}
+
+/* footer-inner can be used when specific footer layout tweaks are needed */
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2.5rem;
+  text-align: left;
 }

@@ -55,23 +55,12 @@ function Home() {
             fill="url(#m-gradient-right)"
             stroke="none"
           />
+          
         </svg>
       </div>
 
      {/* Wave + Featured Clients Section */}
-<div className="wave-section">
-  <svg
-    className="wave"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 1920 650"
-    preserveAspectRatio="none"
-  >
-    <path
-      d="M0,0 C200,300 600,450 1000,500 C1400,550 1700,350 1920,450 L1920,650 L0,650 Z"
-      fill="#008680"
-    ></path>
-  </svg>
-
+<div>
   {/* Featured Clients */}
   <section style={{ padding: "2rem 0", textAlign: "center" }}>
     <h2
