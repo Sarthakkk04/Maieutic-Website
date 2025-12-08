@@ -1,7 +1,11 @@
 import React from "react";
-import "../styles/global.css"; // ✅ import global styles
+import "../styles/global.css";
+import { useNavigate } from "react-router-dom";
+
 
 function Home() {
+  const navigate = useNavigate();
+
   return (
     <div>
       {/* Hero Section */}
@@ -58,6 +62,25 @@ function Home() {
           
         </svg>
       </div>
+      <button
+      onClick={() => navigate("/book-a-demo")}
+      style={{
+        marginTop: "20px",
+        backgroundColor: "#FF6A00",
+        padding: "14px 32px",
+        borderRadius: "6px",
+        border: "none",
+        color: "#fff",
+        fontSize: "17px",
+        fontWeight: "600",
+        cursor: "pointer",
+        transition: "0.3s",
+      }}
+      onMouseOver={(e) => (e.target.style.backgroundColor = "#e65c00")}
+      onMouseOut={(e) => (e.target.style.backgroundColor = "#FF6A00")}
+    >
+      Book a Demo
+    </button>
 
      {/* Wave + Featured Clients Section */}
 <div>

@@ -14,6 +14,7 @@ import Insights from "./pages/Insights";
 import DiscoverUs from "./pages/DiscoverUs";
 import Resources from "./pages/Resources";
 import ContactUs from "./pages/ContactUs";
+import BookDemo from './pages/BookDemo';
 
 // Sub-pages under Solutions
 import ELearningServices from "./pages/solutions/ELearningServices";
@@ -57,6 +58,7 @@ export default function App() {
         <Route path="/discover-us" element={<DiscoverUs />} />
         <Route path="/resources" element={<Resources />} />
         <Route path="/contact-us" element={<ContactUs />} />
+        <Route path="/book-a-demo" element={<BookDemo/>} />
 
         {/* Solutions sub-pages */}
         <Route path="/solutions/elearningservices" element={<ELearningServices />} />
