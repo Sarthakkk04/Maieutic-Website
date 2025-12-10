@@ -1,0 +1,68 @@
+/* Header / Navigation styles moved here from global.css */
+.site-header {
+  background: transparent;
+  width: 100%;
+  color: #000;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.brand img {
+  width: 180px;
+  height: auto;
+  display: block;
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.25rem;
+  align-items: center;
+}
+
+.nav-link {
+  position: relative;
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.05rem;
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #008680;
+  transition: width 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #000000;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Simple responsive behaviour: collapse spacing on small screens */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .main-nav {
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+}
