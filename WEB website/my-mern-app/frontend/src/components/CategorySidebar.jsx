@@ -2,8 +2,8 @@ import React from 'react';
 
 export default function CategorySidebar({ categories, selected, onSelect }) {
   return (
-    <div style={{ width: 260, paddingRight: 20 }}>
-      <ul style={{ listStyle: 'none', padding: 0 }}>
+    <div style={{ width: 440, paddingRight: 10 }}>
+      <ul style={{ listStyle: 'none', paddingRight: 120 }}>
         {categories.map(cat => (
           <li key={cat} style={{ marginBottom: 24 }}>
             <div

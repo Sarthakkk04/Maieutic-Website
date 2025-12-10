@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import CategorySidebar from '../components/CategorySidebar';
 import api from '../api';
 
-const CATEGORIES = ['FinTech','InsurTech','Digital Learning','ImmersiveTech'];
+const CATEGORIES = ['Articulate Content Development','Video Based Learning','Animation Service','IT & Consulting'];
 
 export default function BookDemo(){
   const [searchParams] = useSearchParams();
@@ -65,7 +65,7 @@ export default function BookDemo(){
         <h2>{selectedCategory}</h2>
 
         <form onSubmit={handleSubmit}>
-          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap: 20 }}>
+          <div style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap: 20  }}>
             <input name="firstName" placeholder="First Name" value={form.firstName} onChange={handleChange} />
             <input name="lastName" placeholder="Last Name" value={form.lastName} onChange={handleChange} />
             <div style={{ display:'flex' }}>
@@ -95,7 +95,7 @@ export default function BookDemo(){
           {success && <div style={{ color: 'green', marginTop: 12 }}>{success}</div>}
 
           <div style={{ marginTop: 18 }}>
-            <button type="submit" style={{ padding: '12px 22px', background: 'linear-gradient(90deg,#0066FF,#00D4FF)', color: '#fff', border: 0 }}>
+            <button type="submit" style={{ padding: '12px 22px', background: 'linear-gradient(90deg,#0066FF,#00D4FF)', color: '#f5f0f0ff', border: 0 }}>
               Submit
             </button>
           </div>
