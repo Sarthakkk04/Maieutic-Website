@@ -33,7 +33,7 @@ export default function BookDemo(){
     setErrors(null);
     setSuccess(null);
 
-    // minimal client-side validation
+    
     if (!form.email && !form.phone) {
       setErrors('Provide email or phone');
       return;
@@ -43,12 +43,10 @@ export default function BookDemo(){
       const payload = { ...form, category: selectedCategory };
       const res = await api.post('/demos', payload);
       setSuccess('Saved — thank you! 🎉');
-      // reset form (optional)
       setForm({
         firstName:'', lastName:'', phone:'', email:'', jobTitle:'', companyName:'', companyWebsite:'', city:'', preferredSolution:'', message:'', consent:false
       });
-      // optionally navigate to a thank-you page
-      // navigate('/thank-you');
+      
     } catch (err) {
       console.error(err);
       setErrors(err.response?.data?.error || 'Submit failed');

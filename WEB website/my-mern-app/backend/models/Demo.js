@@ -11,7 +11,7 @@ const DemoSchema = new mongoose.Schema({
   city: { type: String },
   preferredSolution: { type: String },
   message: { type: String },
-  category: { type: String, required: true }, // FinTech / InsurTech / ...
+  category: { type: String, required: true }, // the categories mentioned in side bar
   consent: { type: Boolean, default: false },
   createdAt: { type: Date, default: Date.now }
 });

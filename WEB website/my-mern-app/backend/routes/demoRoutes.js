@@ -7,7 +7,6 @@ router.post('/', async (req, res) => {
   try {
     const payload = req.body;
 
-    // minimal validation: category required
     if (!payload.category) {
       return res.status(400).json({ error: 'category is required' });
     }
@@ -20,8 +19,7 @@ router.post('/', async (req, res) => {
     return res.status(500).json({ error: 'Server error' });
   }
 });
-
-// (optional) get all demos (for admin)
+//gets all demo requests mainly for admin
 router.get('/', async (req, res) => {
   const demos = await Demo.find().sort({ createdAt: -1 }).limit(100);
   res.json(demos);
