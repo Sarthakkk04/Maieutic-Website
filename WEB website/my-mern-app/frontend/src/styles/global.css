@@ -210,11 +210,373 @@
   padding: 0 1rem; /* horizontal gutter consistent with footer padding */
 }
 
-/* footer-inner can be used when specific footer layout tweaks are needed */
-.footer-inner {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  gap: 2.5rem;
-  text-align: left;
+/* footer layout moved to `components/Footer.css` */
+
+/* Clients marquee section: subtle gradient using lighter versions of primary colors */
+.clients-section {
+  padding: 2rem 0;
+  text-align: center;
+  /* very light gradient using the project's primary colors (teal & warm red) */
+  background: linear-gradient(90deg, rgba(0,134,128,0.06) 0%, rgba(163,16,9,0.04) 100%);
 }
+.clients-heading {
+  color: #00615c; /* primary dark teal for headings */
+  font-family: 'Posterama', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Hero section gradient to match clients section (subtle, lighter stops) */
+.hero-section {
+  padding: 1.5rem 0 0 0;
+  background: linear-gradient(90deg, rgba(0,134,128,0.12) 0%, rgba(163,16,9,0.08) 100%);
+  margin-top: 0;
+}
+
+/* Vision & Mission Section */
+.vision-mission-section {
+  padding: 3rem 0;
+  background: #fff;
+}
+
+.vision-mission-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.vision-mission-title {
+  color: #00615c;
+  font-family: 'Posterama', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.vision-mission-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #008680 0%, #800d07 100%);
+  border-radius: 2px;
+}
+
+.vision-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+}
+
+.vision-card, .mission-card {
+  background: linear-gradient(135deg, #f8f8f8 0%, #fafafa 100%);
+  padding: 2.5rem;
+  border-radius: 12px;
+  border-left: 5px solid #008680;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,97,92,0.08);
+}
+
+.mission-card {
+  border-left-color: #800d07;
+}
+
+.vision-card:hover, .mission-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 30px rgba(0,97,92,0.15);
+}
+
+.vision-card h3, .mission-card h3 {
+  font-family: 'Posterama', Arial, sans-serif;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 0 1rem 0;
+  color: #00615c;
+}
+
+.mission-card h3 {
+  color: #800d07;
+}
+
+.vision-card p, .mission-card p {
+  font-family: 'Franklin Gothic Book', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin: 0;
+}
+
+/* Services Section */
+.services-section {
+  padding: 3rem 0;
+  background: linear-gradient(90deg, rgba(0,134,128,0.04) 0%, rgba(163,16,9,0.02) 100%);
+}
+
+.services-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.services-title {
+  color: #00615c;
+  font-family: 'Posterama', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.services-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #008680 0%, #800d07 100%);
+  border-radius: 2px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.service-card {
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 12px;
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0,97,92,0.08);
+  border-top: 4px solid #008680;
+}
+
+.service-card:nth-child(2) {
+  border-top-color: #00615c;
+}
+
+.service-card:nth-child(3) {
+  border-top-color: #800d07;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 35px rgba(0,97,92,0.15);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,134,128,0.1);
+  border-radius: 50%;
+  font-size: 2rem;
+  color: #008680;
+}
+
+.service-card:nth-child(2) .service-icon {
+  background: rgba(0,97,92,0.1);
+  color: #00615c;
+}
+
+.service-card:nth-child(3) .service-icon {
+  background: rgba(163,16,9,0.1);
+  color: #800d07;
+}
+
+.service-card h3 {
+  font-family: 'Posterama', Arial, sans-serif;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #00615c;
+  margin: 0 0 1rem 0;
+}
+
+.service-card p {
+  font-family: 'Franklin Gothic Book', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+  margin: 0;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 3rem 0;
+  background: linear-gradient(135deg, #00615c 0%, #008680 100%);
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.testimonials-title {
+  color: #fff;
+  font-family: 'Posterama', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.8rem;
+  margin-bottom: 3rem;
+  text-align: center;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.testimonials-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: rgba(255,255,255,0.6);
+  border-radius: 2px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.testimonial-card {
+  background: rgba(255,255,255,0.95);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 10px;
+  font-size: 6rem;
+  color: rgba(0,134,128,0.1);
+  font-family: Georgia, serif;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.2);
+}
+
+.testimonial-text {
+  font-family: 'Franklin Gothic Book', Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  font-family: 'Posterama', Arial, sans-serif;
+  font-weight: bold;
+  color: #008680;
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.testimonial-role {
+  font-family: 'Franklin Gothic Book', Arial, sans-serif;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+/* CTA Section */
+.cta-section {
+  padding: 3rem 2rem;
+  background: linear-gradient(90deg, #00615c 0%, #008680 100%);
+  color: #fff;
+  text-align: center;
+}
+
+.cta-title {
+  font-family: 'Posterama', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  background: #A31009;
+  color: #fff;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Book', Arial, sans-serif;
+  box-shadow: 0 4px 16px rgba(163,16,9,0.3);
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #800d07;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 25px rgba(163,16,9,0.4);
+}
+
+@media (max-width: 900px) {
+  .vision-mission-title,
+  .services-title,
+  .testimonials-title,
+  .cta-title {
+    font-size: 2rem;
+  }
+
+  .vision-mission-grid,
+  .services-grid,
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .vision-card, .mission-card,
+  .service-card,
+  .testimonial-card {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .vision-mission-section,
+  .services-section,
+  .testimonials-section,
+  .cta-section {
+    padding: 2rem 0;
+  }
+
+  .vision-mission-title,
+  .services-title,
+  .testimonials-title {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+  }
+}
+
+

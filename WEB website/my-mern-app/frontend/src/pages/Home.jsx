@@ -11,6 +11,7 @@ function Home() {
       {/* Hero Section */}
       
       <div
+        className="hero-section"
         style={{
           display: "flex",
           justifyContent: "flex-end",
@@ -85,16 +86,8 @@ function Home() {
      {/* Wave + Featured Clients Section */}
 <div>
   {/* Featured Clients */}
-  <section style={{ padding: "2rem 0", textAlign: "center" }}>
-    <h2
-      style={{
-        color: "#00615c",
-        fontFamily: "'Posterama', Arial, sans-serif",
-        fontWeight: "bold",
-        fontSize: "2.5rem",
-        marginBottom: "1.5rem",
-      }}
-    >
+  <section className="clients-section">
+    <h2 className="clients-heading">
       Leverage our experience working with these Fortune Clients
     </h2>
 
@@ -173,260 +166,88 @@ function Home() {
 </div>
 
 {/* Vision & Mission */}
-<section style={{ padding: "2rem 0", textAlign: "center" }}>
-  <h2
-    style={{
-      color: "#00615c",
-      fontFamily: "'Posterama', Arial, sans-serif",
-      fontWeight: "bold",
-      fontSize: "2rem",
-      marginBottom: "1.5rem",
-    }}
-  >
-    Our Vision & Mission
-  </h2>
-
-  <div
-    style={{
-      display: "flex",
-      justifyContent: "center",
-      gap: "2rem",
-      flexWrap: "wrap",
-    }}
-  >
-    <div
-      style={{
-        background: "#F2AA84",
-        padding: "2rem",
-        borderRadius: "16px",
-        width: "350px",
-        boxShadow: "0 2px 12px rgba(163,16,9,0.07)",
-      }}
-    >
-      <h3 style={{ color: "#800d07", fontFamily: "'Posterama', Arial, sans-serif" }}>
-        Vision
-      </h3>
-      <p style={{ color: "#00615c", fontFamily: "'Franklin Gothic Book', Arial, sans-serif" }}>
-        To be the most trusted partner in the education sector, enabling institutions and individuals to achieve excellence through technology-driven learning.
-      </p>
-    </div>
-
-    <div
-      style={{
-        background: "#F2AA84",
-        padding: "2rem",
-        borderRadius: "16px",
-        width: "350px",
-        boxShadow: "0 2px 12px rgba(163,16,9,0.07)",
-      }}
-    >
-      <h3 style={{ color: "#800d07", fontFamily: "'Posterama', Arial, sans-serif" }}>
-        Mission
-      </h3>
-      <p style={{ color: "#00615c", fontFamily: "'Franklin Gothic Book', Arial, sans-serif" }}>
-        To deliver innovative, effective, and affordable e-learning solutions that foster growth, creativity, and lifelong learning.
-      </p>
+<section className="vision-mission-section">
+  <div className="vision-mission-container">
+    <h2 className="vision-mission-title">Our Vision & Mission</h2>
+    <div className="vision-mission-grid">
+      <div className="vision-card">
+        <h3>Vision</h3>
+        <p>
+          DRIVE SUCCESS WITH INNOVATIVE EDUCATIONAL APPROACHES IN THE DIGITAL ERA
+        </p>
+      </div>
+      <div className="mission-card">
+        <h3>Mission</h3>
+        <p>
+          ENGAGE, EMPOWER AND FOSTER GROWTH THROUGH INSPIRED EDUCATIONAL CONTENT
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-         {/* Services */}
-      <section style={{ padding: "2rem 0", textAlign: "center" }}>
-        <h2
-          style={{
-            color: "#00615c",
-            fontFamily: "'Posterama', Arial, sans-serif",
-            fontWeight: "bold",
-            fontSize: "2.5rem",
-            marginBottom: "1.5rem",
-          }}
-        >
-          Our Services
-        </h2>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "2rem",
-            flexWrap: "wrap",
-          }}
-        >
-          {[
-            {
-              title: "Online Courses",
-              desc: "Wide range of courses for students and professionals.",
-            },
-            {
-              title: "Institutional Solutions",
-              desc: "Custom e-learning platforms for schools and colleges.",
-            },
-            {
-              title: "Teacher Training",
-              desc: "Workshops and certifications for educators.",
-            },
-          ].map((service, i) => (
-            <div
-              key={i}
-              style={{
-                background: "#FEF1DE",
-                padding: "2rem",
-                borderRadius: "16px",
-                width: "250px",
-                boxShadow: "0 2px 12px rgba(0,97,92,0.07)",
-                transition: "transform 0.2s",
-              }}
-              onMouseOver={(e) =>
-                (e.currentTarget.style.transform = "scale(1.05)")
-              }
-              onMouseOut={(e) =>
-                (e.currentTarget.style.transform = "scale(1)")
-              }
-            >
-              <h3
-                style={{
-                  color: "#A31009",
-                  fontFamily: "'Posterama', Arial, sans-serif",
-                }}
-              >
-                {service.title}
-              </h3>
-              <p
-                style={{
-                  color: "#00615c",
-                  fontFamily: "'Franklin Gothic Book', Arial, sans-serif",
-                }}
-              >
-                {service.desc}
-              </p>
+      {/* Services */}
+      <section className="services-section">
+        <div className="services-container">
+          <h2 className="services-title">Our Services</h2>
+          <div className="services-grid">
+            <div className="service-card">
+              <div className="service-icon">📚</div>
+              <h3>Online Courses</h3>
+              <p>Wide range of courses for students and professionals to enhance their skills and knowledge.</p>
             </div>
-          ))}
+            <div className="service-card">
+              <div className="service-icon">🏢</div>
+              <h3>Institutional Solutions</h3>
+              <p>Custom e-learning platforms tailored for schools, colleges, and corporate organizations.</p>
+            </div>
+            <div className="service-card">
+              <div className="service-icon">👨‍🏫</div>
+              <h3>Teacher Training</h3>
+              <p>Comprehensive workshops and certifications designed to empower educators with modern teaching methodologies.</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Testimonials */}
-      <section
-        style={{
-          background: "#F8847E",
-          padding: "2rem 0",
-          textAlign: "center",
-        }}
-      >
-        <h2
-          style={{
-            color: "#800d07",
-            fontFamily: "'Posterama', Arial, sans-serif",
-            fontWeight: "bold",
-            fontSize: "2.5rem",
-            marginBottom: "1.5rem",
-          }}
-        >
-          What Our Clients Say
-        </h2>
-
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            gap: "2rem",
-            flexWrap: "wrap",
-          }}
-        >
-          <div
-            style={{
-              background: "#800d07",
-              padding: "1.5rem",
-              borderRadius: "16px",
-              width: "300px",
-              boxShadow: "0 2px 12px rgba(0,97,92,0.07)",
-            }}
-          >
-            <p
-              style={{
-                color: "#00615c",
-                fontFamily: "'Franklin Gothic Book', Arial, sans-serif",
-              }}
-            >
-              "Maieutic Edutech helped our school implement a seamless online
-              learning platform. The support and training were excellent!"
-            </p>
-            <strong
-              style={{
-                color: "#800d07",
-                fontFamily: "'Posterama', Arial, sans-serif",
-              }}
-            >
-              - School Principal
-            </strong>
-          </div>
-
-          <div
-            style={{
-              background: "#fff",
-              padding: "1.5rem",
-              borderRadius: "16px",
-              width: "300px",
-              boxShadow: "0 2px 12px rgba(0,97,92,0.07)",
-            }}
-          >
-            <p
-              style={{
-                color: "#00615c",
-                fontFamily: "'Franklin Gothic Book', Arial, sans-serif",
-              }}
-            >
-              "The courses are engaging and easy to follow. Highly recommended
-              for anyone looking to upskill!"
-            </p>
-            <strong
-              style={{
-                color: "#800d07",
-                fontFamily: "'Posterama', Arial, sans-serif",
-              }}
-            >
-              - Student
-            </strong>
+      <section className="testimonials-section">
+        <div className="testimonials-container">
+          <h2 className="testimonials-title">What Our Clients Say</h2>
+          <div className="testimonials-grid">
+            <div className="testimonial-card">
+              <p className="testimonial-text">
+                "Maieutic Edutech transformed our institution's approach to learning. Their platform is intuitive, feature-rich, and the support team is exceptional. We've seen tremendous engagement from both students and teachers."
+              </p>
+              <div className="testimonial-author">Dr. Rajesh Kumar</div>
+              <div className="testimonial-role">Principal, Premier School</div>
+            </div>
+            <div className="testimonial-card">
+              <p className="testimonial-text">
+                "The courses offered are comprehensive and well-structured. As a working professional, I appreciate the flexibility and the practical knowledge gained. Highly recommended for anyone looking to upskill."
+              </p>
+              <div className="testimonial-author">Priya Sharma</div>
+              <div className="testimonial-role">Marketing Professional</div>
+            </div>
+            <div className="testimonial-card">
+              <p className="testimonial-text">
+                "Outstanding platform with excellent training modules. The implementation process was smooth, and their training support ensured our team could maximize the benefits. A true game-changer for our organization."
+              </p>
+              <div className="testimonial-author">Amit Patel</div>
+              <div className="testimonial-role">CEO, Tech Solutions Ltd</div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section
-        style={{
-          padding: "3rem 2rem",
-          textAlign: "center",
-          background: "linear-gradient(90deg, #00615c 0%, #008680 100%)",
-          color: "#fff",
-        }}
-      >
-        <h2
-          style={{
-            fontWeight: "700",
-            fontFamily: "'Posterama', Arial, sans-serif",
-            fontSize: "2.5rem",
-          }}
-        >
-          Ready to transform your learning experience?
-        </h2>
+      <section className="cta-section">
+        <h2 className="cta-title">Ready to transform your learning experience?</h2>
         <button
-          style={{
-            padding: "1rem 2.5rem",
-            fontSize: "1.2rem",
-            background: "#A31009",
-            color: "#fff",
-            border: "none",
-            borderRadius: "30px",
-            cursor: "pointer",
-            marginTop: "1rem",
-            fontWeight: "bold",
-            fontFamily: "'Franklin Gothic Book', Arial, sans-serif",
-            boxShadow: "0 4px 16px rgba(163,16,9,0.15)",
-            transition: "background 0.3s",
-          }}
-          onMouseOver={(e) => (e.target.style.background = "#800d07")}
-          onMouseOut={(e) => (e.target.style.background = "#A31009")}
+          className="cta-button"
+          onClick={() => window.location.href = "/contact"}
         >
-          Contact Us
+          Contact Us Today
         </button>
       </section>
 

@@ -3,7 +3,7 @@ import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 // Components
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import Footer from "./components/Footer"; // optional
 
 // Pages (main)
@@ -47,7 +47,7 @@ import Blog from "./pages/resources/Blog";
 export default function App() {
   return (
     <Router>
-      <Header />
+      <Navbar />
 
       <Routes>
         {/* Main pages */}
