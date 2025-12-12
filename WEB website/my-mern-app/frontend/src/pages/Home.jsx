@@ -9,19 +9,26 @@ function Home() {
   return (
     <div>
       {/* Hero Section */}
-      
       <div
         className="hero-section"
         style={{
           display: "flex",
           justifyContent: "flex-end",
-          marginRight: "4vw",
-          marginTop: "2vw",
+          marginRight: "0vw",
+          marginTop: "0vw",
         }}
       >
         <div className="hero-text">
           <h1 className="brand-heading">Maieutic Edutech Pvt. Ltd.</h1>
           <p className="brand-sub">Where Creativity Meets Learning</p>
+          <button
+            className="hero-cta"
+            onClick={() => navigate("/book-a-demo")}
+            onMouseOver={(e) => (e.target.style.backgroundColor = "#e65c00")}
+            onMouseOut={(e) => (e.target.style.backgroundColor = "#FF6A00")}
+          >
+            Book a Demo
+          </button>
         </div>
 
         <svg
@@ -63,25 +70,7 @@ function Home() {
           
         </svg>
       </div>
-      <button
-      onClick={() => navigate("/book-a-demo")}
-      style={{
-        marginTop: "20px",
-        backgroundColor: "#FF6A00",
-        padding: "14px 32px",
-        borderRadius: "6px",
-        border: "none",
-        color: "#fff",
-        fontSize: "17px",
-        fontWeight: "600",
-        cursor: "pointer",
-        transition: "0.3s",
-      }}
-      onMouseOver={(e) => (e.target.style.backgroundColor = "#e65c00")}
-      onMouseOut={(e) => (e.target.style.backgroundColor = "#FF6A00")}
-    >
-      Book a Demo
-    </button>
+    
 
      {/* Wave + Featured Clients Section */}
 <div>

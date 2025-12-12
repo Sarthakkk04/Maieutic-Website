@@ -1,277 +1,253 @@
-import React, { useState } from "react";
-import MamathaImage from "../img-assets/MAMATHA.jpg";
-import RavishankaraImage from "../img-assets/RAVISHANKARA.jpg";
- 
-// Team Members
-const teamMembers = [
-  {
-    name: "RAVISHANKARA B",
-    role: "C.E.O",
-    image: RavishankaraImage,
-    description: `Performance-driven professional from technology & managerial background with over 20+ years of leadership experience in Strategic Planning, Business Development, Sales & Marketing, Operations Management and Customer Relationship Management. Highly focused on building sales funnel and consistently involved in bringing in new logos. Extensively worked towards the revenue and profit gains for the organization in a highly competitive market. Possess hands-on experience in both services and product selling fields such as E-Learning, Enterprise Mobile Services, Mechanical Design Engineering Services, Telecommunications and BPO sector. Exceptional communicator with a customer-centric approach, strong negotiation skills, outstanding problem-solving abilities and aggressively identifies opportunities & nurture those prospects to provide tactical business solutions.`
-  },
-  {
-    name: "MAMATHA BHARGAV",
-    role: "Operations",
-    image: MamathaImage,
-    description: `Operations and performance driven professional with 8+ years’ experience with diverse backgrounds in content creation, storyboarding, management, client/vendor relationship management. Effective team player, leader, communicator, out-of-the-box thinking. Hands on experience in Learning Design and instructional designing, focused on quality deliveries. Keen eye for details towards completion. Contributing management with the day-to-day activity and helping sales team in revenue generation.`
-  },
-  {
-    name: "PROJECT MANAGER",
-    role: "Project Management",
-    image: "PROJECT_MANAGER.jpg",
-    description: `Oversees projects, coordinates with teams, ensures timely delivery, and maintains high quality standards. Skilled in planning, execution, and stakeholder communication.`
-  },
-  {
-    name: "SALES & MARKETING",
-    role: "Sales & Marketing",
-    image: "SALES_MARKETING.jpg",
-    description: `Handles sales strategies, marketing campaigns, client engagement, and revenue generation. Expertise in market analysis and customer relationship management.`
-  }
+import React, { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import './solutions.css';
+
+import ElearningImg from "../img-assets/contactpage.png";
+import AnimationImg from "../img-assets/image 2111.png";
+import TrainingImg from "../img-assets/Rectangle 184.png";
+import PsychometricImg from "../img-assets/Rectangle 185.png";
+
+const services = [
+	{
+		id: 'elearning',
+		title: 'eLearning Services',
+		headline: 'Impactful, learner-centric content engineered for performance.',
+		bullets: [
+			'Custom eLearning modules',
+			'Scenario-based learning',
+			'Gamified learning paths',
+			'Assessments & analytics',
+		],
+		img: ElearningImg,
+	},
+	{
+		id: 'animation',
+		title: 'Animation Services',
+		headline: 'Bring concepts to life through visuals and motion.',
+		bullets: ['2D animations', '3D motion graphics', 'Explainer videos', 'Storyboarding'],
+		img: AnimationImg,
+	},
+	{
+		id: 'training',
+		title: 'Training Solutions',
+		headline: 'Scalable, practical, outcome-driven training strategies.',
+		bullets: [
+			'Workforce upskilling programs',
+			'Soft-skill & behavioral training',
+			'Blended learning',
+			'Competency frameworks',
+		],
+		img: TrainingImg,
+	},
+	{
+		id: 'psychometric',
+		title: 'Psychometric Assessment',
+		headline: 'Identify strengths. Understand preferences. Unlock potential.',
+		bullets: [
+			'Aptitude & cognitive tests',
+			'Personality profiling',
+			'Career assessment',
+			'Behavioral indicators',
+		],
+		img: PsychometricImg,
+	},
 ];
- 
-// Specialists Data
-const specialistsData = {
-  "Instructional Designers": [
-    {
-      name: "John Doe",
-      role: "Senior Designer",
-      image: "john.jpg",
-      description: "Experienced instructional designer with 5+ years in e-learning content development."
-    },
-    {
-      name: "Jane Smith",
-      role: "Junior Designer",
-      image: "jane.jpg",
-      description: "Supports course creation and storyboard development for various clients."
-    }
-  ],
-  "Articulate": [
-    {
-      name: "Alice Johnson",
-      role: "Articulate Expert",
-      image: "alice.jpg",
-      description: "Specialist in Articulate 360 and interactive e-learning modules."
-    }
-  ],
-  "Video Editors": [
-    {
-      name: "Bob Brown",
-      role: "Video Editor",
-      image: "bob.jpg",
-      description: "Handles video editing and post-production for training modules."
-    }
-  ],
-  "Voice-Over Artist": [
-    {
-      name: "Emily White",
-      role: "Voice Talent",
-      image: "emily.jpg",
-      description: "Professional voice-over artist with experience in corporate e-learning."
-    }
-  ],
-  "Data Engineers": [
-    {
-      name: "David Green",
-      role: "Data Engineer",
-      image: "david.jpg",
-      description: "Works on data collection, cleaning, and analytics for learning systems."
-    }
-  ]
-};
- 
-// Specialist Accordion Component
-const SpecialistAccordion = () => {
-  const [activeIndex, setActiveIndex] = useState(null);
- 
-  const toggleAccordion = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
- 
-  return (
-    <div style={{ maxWidth: "800px", margin: "2rem auto" }}>
-      {Object.keys(specialistsData).map((specialist, index) => (
-        <div key={index} style={{ marginBottom: "1rem" }}>
-          <div
-            onClick={() => toggleAccordion(index)}
-            style={{
-              background: "#4f5857ff",
-              color: "#f9f9f9",
-              padding: "1rem 1.5rem",
-              cursor: "pointer",
-              fontWeight: "bold",
-              borderRadius: "6px",
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center"
-            }}
-          >
-            {specialist}
-            <span>{activeIndex === index ? "−" : "+"}</span>
-          </div>
- 
-          {activeIndex === index && (
-            <div style={{ background: "#f8f9fa", padding: "1rem 1.5rem", borderRadius: "6px" }}>
-              {specialistsData[specialist].map((member, i) => (
-                <div key={i} style={{ display: "flex", marginBottom: "1rem", gap: "1rem" }}>
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    style={{ width: "100px", height: "100px", borderRadius: "12px", objectFit: "cover" }}
-                  />
-                  <div>
-                    <h3 style={{ margin: 0, color: "#00615c" }}>{member.name}</h3>
-                    <h4 style={{ margin: "0.2rem 0", color: "#333" }}>{member.role}</h4>
-                    <p style={{ margin: 0, color: "#444", fontSize: "0.95rem" }}>{member.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-  );
-};
- 
-// Management Component
-function Solutions() {
-  return (
-    <div style={{ minHeight: "100vh", padding: "3rem 1rem", background: "#FEF1DE"  }}>
-      <h1 style={{ textAlign: "center", marginBottom: "3rem", fontSize: "2.5rem", color: "#00615c" }}>
-        Our Management Team
-      </h1>
- 
-      {/* Row 1: CEO & Operations */}
-      <div style={{
-        display: "flex",
-        justifyContent: "center",
-        gap: "2rem",
-        flexWrap: "wrap",
-        marginBottom: "2rem"
-      }}>
-        {teamMembers.slice(0, 2).map(member => (
-          <ManagementCard key={member.name} member={member} />
-        ))}
-      </div>
- 
-      {/* Row 2: Project Manager (Image left) */}
-      <div style={{ display: "flex", justifyContent: "center", marginBottom: "2rem" }}>
-        <WideCard member={teamMembers[2]} imageLeft={true} />
-      </div>
- 
-      {/* Row 3: Sales & Marketing (Image right) */}
-      <div style={{ display: "flex", justifyContent: "center", marginBottom: "3rem" }}>
-        <WideCard member={teamMembers[3]} imageLeft={false} />
-      </div>
- 
-      {/* Specialists Section */}
-      <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "2rem 1rem" }}>
-        <h2 style={{ textAlign: "center", color: "#00615c", fontSize: "2rem", marginBottom: "2rem" }}>
-          Our Specialists
-        </h2>
- 
-        <SpecialistAccordion />
-      </div> 
-    </div>
-  );
+
+export default function Solutions() {
+	const navigate = useNavigate();
+	const rootRef = useRef(null);
+
+	useEffect(() => {
+		const el = rootRef.current;
+		if (!el || typeof IntersectionObserver === 'undefined') return;
+		const items = el.querySelectorAll('.reveal');
+		const obs = new IntersectionObserver(
+			(entries) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) entry.target.classList.add('in-view');
+				});
+			},
+			{ threshold: 0.18 }
+		);
+		items.forEach((it) => obs.observe(it));
+		return () => obs.disconnect();
+	}, []);
+
+	function scrollTo(id) {
+		const el = document.getElementById(id);
+		if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+	}
+
+	return (
+		<main className="solutions-page" ref={rootRef}>
+			<section className="solutions-hero">
+				<div className="hero-bg" aria-hidden />
+				<div className="site-container hero-split">
+					<div className="hero-left">
+						<h1>Transforming Learning Into Measurable Impact</h1>
+						<p className="lead">Empowering organizations with next-generation learning, content, and assessment solutions.</p>
+
+						<div className="hero-cta-row">
+							<button className="btn-primary" onClick={() => navigate('/book-a-demo')}>Book a Demo</button>
+							<button className="btn-outline" onClick={() => scrollTo('elearning')}>Explore Solutions</button>
+						</div>
+
+						<div className="hero-icons" role="toolbar" aria-label="quick links">
+							<HeroIcon label="eLearning" onClick={() => scrollTo('elearning')}>
+								<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><rect x="3" y="6" width="18" height="12" rx="2" stroke="#0ea08f" strokeWidth="1.6"/></svg>
+							</HeroIcon>
+							<HeroIcon label="Animation" onClick={() => scrollTo('animation')}>
+								<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><circle cx="12" cy="12" r="8" stroke="#f08a5d" strokeWidth="1.6"/></svg>
+							</HeroIcon>
+							<HeroIcon label="Training" onClick={() => scrollTo('training')}>
+								<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><rect x="4" y="4" width="16" height="16" rx="3" stroke="#3b82f6" strokeWidth="1.6"/></svg>
+							</HeroIcon>
+							<HeroIcon label="Psychometric" onClick={() => scrollTo('psychometric')}>
+								<svg viewBox="0 0 24 24" width="20" height="20" fill="none"><path d="M12 4a8 8 0 1 0 0 16 8 8 0 0 0 0-16z" stroke="#7c3aed" strokeWidth="1.6"/></svg>
+							</HeroIcon>
+						</div>
+					</div>
+
+					<div className="hero-right">
+						<div className="hero-illustration" aria-hidden>
+							<svg className="hero-svg" viewBox="0 0 600 360" preserveAspectRatio="xMidYMid meet">
+								<defs>
+									<linearGradient id="g1" x1="0" x2="1">
+										<stop offset="0" stopColor="#e6fffa" />
+										<stop offset="1" stopColor="#ecfeff" />
+									</linearGradient>
+								</defs>
+								<g className="books" transform="translate(40,40)">
+									<rect className="book book1" x="0" y="80" width="80" height="16" rx="3" fill="#ffd6a5" />
+									<rect className="book book2" x="10" y="60" width="80" height="16" rx="3" fill="#caffbf" />
+									<rect className="book book3" x="20" y="40" width="80" height="16" rx="3" fill="#9bf6ff" />
+								</g>
+								<g className="screen" transform="translate(220,40)">
+									<rect className="screen-rect" x="0" y="0" width="200" height="120" rx="10" fill="#ffffff" stroke="#d1fae5"/>
+									<circle className="screen-dot" cx="160" cy="20" r="6" fill="#7c3aed" />
+								</g>
+								<g className="spark" transform="translate(460,40)">
+									<path className="spark-path" d="M10 60 L30 40 L50 60 L30 80 Z" fill="#ffd6a5" />
+								</g>
+								<g className="chart" transform="translate(320,180)">
+									<rect x="0" y="40" width="20" height="40" fill="#a78bfa" />
+									<rect x="30" y="20" width="20" height="60" fill="#60a5fa" />
+									<rect x="60" y="0" width="20" height="80" fill="#34d399" />
+								</g>
+							</svg>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="elearning" className="section section-elearning reveal">
+				<div className="site-container section-inner">
+					<div className="section-media">
+						<div className="media-photo" style={{ backgroundImage: `url(${services[0].img})` }} />
+						<div className="media-overlay">
+							<div className="ui-card">LMS Dashboard <span className="meter"/></div>
+						</div>
+					</div>
+					<div className="section-content">
+						<h2>{services[0].title}</h2>
+						<p className="section-headline">{services[0].headline}</p>
+						<ul className="bullets">
+							{services[0].bullets.map((b) => <li key={b}>{b}</li>)}
+						</ul>
+						<div className="micro-garnish">
+							<div className="module-card">Module A <div className="progress"><span style={{width:'68%'}}/></div></div>
+							<div className="badge">Certificate</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="animation" className="section section-animation reveal">
+				<div className="site-container section-inner split">
+					<div className="anim-media">
+						<div className="fake-animation">
+							<div className="shape s1"/><div className="shape s2"/><div className="shape s3"/>
+						</div>
+						<div className="carousel-samples">
+							<img src={services[1].img} alt="sample frame"/>
+							<img src={services[1].img} alt="sample frame"/>
+							<img src={services[1].img} alt="sample frame"/>
+						</div>
+					</div>
+					<div className="anim-content">
+						<h2>{services[1].title}</h2>
+						<p className="section-headline">{services[1].headline}</p>
+						<div className="feature-grid">
+							{services[1].bullets.map((b) => (
+								<div className="feature" key={b}><strong>{b}</strong></div>
+							))}
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="training" className="section section-training reveal">
+				<div className="site-container section-inner split reverse">
+					<div className="training-content">
+						<h2>{services[2].title}</h2>
+						<p className="section-headline">{services[2].headline}</p>
+						<ul className="bullets">
+							{services[2].bullets.map((b) => <li key={b}>{b}</li>)}
+						</ul>
+					</div>
+					<div className="training-media">
+						<div className="photo-collage" style={{ backgroundImage: `url(${services[2].img})` }} />
+						<div className="cards-list">
+							<div className="card">Upskilling</div>
+							<div className="card">Blended</div>
+							<div className="card">Roadmap</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section id="psychometric" className="section section-psychometric reveal">
+				<div className="site-container section-inner split">
+					<div className="psych-media">
+						<div className="glass-card brain-anim" aria-hidden>
+							<svg viewBox="0 0 120 120" className="brain-svg"><circle cx="60" cy="60" r="36" fill="none" stroke="#93c5fd" strokeWidth="2"/></svg>
+						</div>
+						<div className="ui-screenshot" style={{ backgroundImage: `url(${services[3].img})` }} />
+					</div>
+					<div className="psych-content">
+						<h2>{services[3].title}</h2>
+						<p className="section-headline">{services[3].headline}</p>
+						<ul className="bullets">
+							{services[3].bullets.map((b) => <li key={b}>{b}</li>)}
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section className="solutions-cta">
+				<div className="site-container cta-inner">
+					<h2>Let’s Build the Future of Learning Together</h2>
+					<div>
+						<button className="btn-primary" onClick={() => navigate('/book-a-demo')}>Book a Demo</button>
+					</div>
+				</div>
+			</section>
+
+			<footer className="solutions-footer">
+				<div className="site-container footer-inner">
+					<div>© {new Date().getFullYear()} Maieutic</div>
+					<div><a href="/contact-us">Contact</a></div>
+				</div>
+			</footer>
+		</main>
+	);
 }
- 
-// Standard Card Component (row1)
-const ManagementCard = ({ member }) => {
-  return (
-    <div
-      style={{
-        flex: "1 1 45%",
-        maxWidth: "600px",
-        background: "#f9f9f9",
-        borderRadius: "12px",
-        border: "2px dashed #00615c",
-        padding: "1.5rem",
-        boxSizing: "border-box",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        transition: "transform 0.3s, box-shadow 0.3s"
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.transform = "translateY(-6px)";
-        e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,0,0,0.18)";
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "0 6px 18px rgba(0,0,0,0.12)";
-      }}
-    >
-      <img
-        src={member.image}
-        alt={member.name}
-        style={{
-          width: "150px",
-          height: "150px",
-          borderRadius: "50%",
-          objectFit: "cover",
-          marginBottom: "1rem",
-          border: "2px solid #00615c"
-        }}
-      />
-      <h2 style={{ color: "#00615c", marginBottom: "0.3rem" }}>{member.name}</h2>
-      <h3 style={{ color: "#333", marginBottom: "1rem" }}>{member.role}</h3>
-      <p style={{ color: "#444", lineHeight: "1.6", fontSize: "1rem", textAlign: "justify" }}>
-        {member.description}
-      </p>
-    </div>
-  );
-};
- 
-// Wide Card Component (row2 & row3)
-const WideCard = ({ member, imageLeft }) => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexDirection: imageLeft ? "row" : "row-reverse",
-        alignItems: "center",
-        width: "90%",
-        background: "#f9f9f9",
-        borderRadius: "12px",
-        border: "2px dashed #00615c",
-        padding: "2rem",
-        gap: "2rem",
-        boxShadow: "0 6px 18px rgba(0,0,0,0.12)",
-        transition: "transform 0.3s, box-shadow 0.3s",
-        flexWrap: "wrap"
-      }}
-      onMouseEnter={e => {
-        e.currentTarget.style.transform = "translateY(-6px)";
-        e.currentTarget.style.boxShadow = "0 12px 24px rgba(0,0,0,0.18)";
-      }}
-      onMouseLeave={e => {
-        e.currentTarget.style.transform = "translateY(0)";
-        e.currentTarget.style.boxShadow = "0 6px 18px rgba(0,0,0,0.12)";
-      }}
-    >
-      <img
-        src={member.image}
-        alt={member.name}
-        style={{
-          width: "200px",
-          height: "200px",
-          borderRadius: "12px",
-          objectFit: "cover",
-          border: "2px solid #00615c",
-          flexShrink: 0
-        }}
-      />
-      <div style={{ flex: "1 1 300px" }}>
-        <h2 style={{ color: "#00615c", marginBottom: "0.3rem" }}>{member.name}</h2>
-        <h3 style={{ color: "#333", marginBottom: "1rem" }}>{member.role}</h3>
-        <p style={{ color: "#444", lineHeight: "1.6", fontSize: "1rem", textAlign: "justify" }}>
-          {member.description}
-        </p>
-      </div>
-    </div>
-  );
-};
- 
-export default Solutions;
+
+function HeroIcon({ children, label, onClick }) {
+	return (
+		<button className="hero-icon" title={label} onClick={onClick} aria-label={label}>
+			{children}
+		</button>
+	);
+}
+

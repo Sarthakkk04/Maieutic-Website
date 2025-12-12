@@ -51,6 +51,7 @@ export default function Navbar() {
             {/* Solutions */}
             <Dropdown
               title="Solutions"
+              path="/solutions"
               dropdownOpen={dropdownOpen}
               setDropdownOpen={setDropdownOpen}
               id="solutions"
@@ -87,6 +88,7 @@ export default function Navbar() {
             {/* Industry */}
             <Dropdown
               title="Industry"
+              path="/industry"
               dropdownOpen={dropdownOpen}
               setDropdownOpen={setDropdownOpen}
               id="industry"
@@ -105,6 +107,7 @@ export default function Navbar() {
             {/* Discover Us */}
             <Dropdown
               title="Discover Us"
+              path="/discover-us"
               dropdownOpen={dropdownOpen}
               setDropdownOpen={setDropdownOpen}
               id="discover"
@@ -123,6 +126,7 @@ export default function Navbar() {
             {/* Resources */}
             <Dropdown
               title="Resources"
+              path="/resources"
               dropdownOpen={dropdownOpen}
               setDropdownOpen={setDropdownOpen}
               id="resources"
@@ -155,6 +159,7 @@ export default function Navbar() {
         <div className="mobile-nav">
           <Link to="/" className="mobile-nav-link" onClick={closeMobileMenu}>Home</Link>
 
+          <Link to="/solutions" className="mobile-nav-link" onClick={closeMobileMenu}>Solutions</Link>
           <MobileDropdown title="Solutions" id="solutions" links={[
             { path: "/solutions/ELearningServices", label: "ELearning Services" },
             { path: "/solutions/AnimationServices", label: "Animation Services" },
@@ -162,6 +167,7 @@ export default function Navbar() {
             { path: "/solutions/PsychometricAssessment", label: "Psychometric Assessment" }
           ]} mobileDropdownOpen={mobileDropdownOpen} setMobileDropdownOpen={setMobileDropdownOpen} closeMobileMenu={closeMobileMenu} />
 
+          <Link to="/industry" className="mobile-nav-link" onClick={closeMobileMenu}>Industry</Link>
           <MobileDropdown title="Industry" id="industry" links={[
             { path: "/industry/Education", label: "Education" },
             { path: "/industry/Healthcare", label: "Healthcare" },
@@ -171,6 +177,7 @@ export default function Navbar() {
             { path: "/industry/Retail", label: "Retail" }
           ]} mobileDropdownOpen={mobileDropdownOpen} setMobileDropdownOpen={setMobileDropdownOpen} closeMobileMenu={closeMobileMenu} />
 
+          <Link to="/discover-us" className="mobile-nav-link" onClick={closeMobileMenu}>Discover Us</Link>
           <MobileDropdown title="Discover Us" id="discover" links={[
             { path: "/discover-us/AboutUs", label: "About Us" },
             { path: "/discover-us/Leadership", label: "Leadership" },
@@ -180,6 +187,7 @@ export default function Navbar() {
             { path: "/discover-us/Portfolio", label: "Portfolio" }
           ]} mobileDropdownOpen={mobileDropdownOpen} setMobileDropdownOpen={setMobileDropdownOpen} closeMobileMenu={closeMobileMenu} />
 
+          <Link to="/resources" className="mobile-nav-link" onClick={closeMobileMenu}>Resources</Link>
           <MobileDropdown title="Resources" id="resources" links={[
             { path: "/resources/Brochure", label: "Brochure" },
             { path: "/resources/CaseStudy", label: "Case Study" },
@@ -195,14 +203,14 @@ export default function Navbar() {
 }
 
 // Desktop Dropdown Component
-function Dropdown({ title, dropdownOpen, setDropdownOpen, id, leftTitle, leftDesc, items }) {
+function Dropdown({ title, path, dropdownOpen, setDropdownOpen, id, leftTitle, leftDesc, items }) {
   return (
     <div
       className="dropdown-wrapper"
       onMouseEnter={() => setDropdownOpen(id)}
       onMouseLeave={() => setDropdownOpen(null)}
     >
-      <span className="nav-link">{title}</span>
+      <Link to={path || '#'} className="nav-link">{title}</Link>
       {dropdownOpen === id && (
         <div className="mega-dropdown">
           <div className="mega-dropdown-inner">

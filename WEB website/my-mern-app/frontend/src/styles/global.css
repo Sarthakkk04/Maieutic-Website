@@ -41,6 +41,35 @@
   letter-spacing: 1px;
 }
 
+/* Hero CTA (Book a Demo) placed under subtitle, left aligned */
+.hero-cta {
+  display: inline-block;
+  margin-top: 6.8rem;
+  margin-left: 0%;
+  background-color: #FF6A00;
+  padding: 14px 28px;
+  border-radius: 4px;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-cta:hover {
+  background-color: #e65c00;
+  transform: translateY(-2px);
+}
+
+/* Ensure hero text and CTA align nicely on small screens */
+@media (max-width: 900px) {
+  .brand-heading { font-size: 8vw; margin-top: 6rem; }
+  .brand-sub { font-size: 3.6vw; }
+  .hero-text { max-width: 100%; padding-left: 1rem; }
+  .hero-cta { padding: 12px 20px; font-size: 0.95rem; }
+}
+
 /* Animations */
 @keyframes fadeInLeft {
   from { opacity: 0; transform: translateX(-50px); }
@@ -578,5 +607,159 @@
     margin-bottom: 2rem;
   }
 }
+
+/* Solutions Page Styles */
+.solutions-page {
+  background: #ffffff;
+  color: #233;
+}
+
+.solutions-hero {
+  padding: 3.5rem 0 2rem 0;
+  background: linear-gradient(90deg, rgba(0,134,128,0.04) 0%, rgba(163,16,9,0.02) 100%);
+}
+
+.solutions-title {
+  font-size: 2.4rem;
+  color: #00615c;
+  margin: 0 0 0.5rem 0;
+}
+.solutions-lead {
+  color: #444;
+  max-width: 760px;
+  margin-bottom: 1.25rem;
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  align-items: stretch;
+  padding: 2rem 0 4rem 0;
+}
+
+.solution-card {
+  display: flex;
+  gap: 1rem;
+  background: #fbfbfb;
+  border-radius: 10px;
+  padding: 1.25rem;
+  align-items: flex-start;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.solution-icon { flex: 0 0 72px; }
+.solution-icon svg { display: block; }
+
+.solution-body { flex: 1; }
+.solution-title { margin: 0 0 0.25rem 0; color: #163f3b; font-size: 1.25rem; }
+.solution-short { margin: 0 0 0.75rem 0; color: #444; }
+.solution-list { margin: 0 0 1rem 1rem; color: #444; }
+
+.solution-actions { display:flex; gap:0.75rem; }
+.btn-primary {
+  background:#FF6A00; color:#fff; border:none; padding:0.6rem 1rem; border-radius:6px; cursor:pointer;
+}
+.btn-outline { background:transparent; border:1px solid #cfcfcf; padding:0.55rem 0.9rem; border-radius:6px; cursor:pointer; }
+
+@media (max-width: 900px) {
+  .solutions-grid { grid-template-columns: 1fr; }
+  .solutions-title { font-size: 2rem; }
+}
+
+/* Redesigned alternating sections for Solutions page */
+.solutions-list { margin-top: 1.5rem; }
+.solution-section { padding: 3.25rem 0; border-bottom: 1px solid #f0f0f0; }
+.solution-section:nth-child(odd) { background: #fff; }
+.solution-section:nth-child(even) { background: #fbfcfc; }
+.solution-inner { display: grid; grid-template-columns: 320px 1fr; gap: 2rem; align-items: center; }
+.solution-media .media-card { width: 100%; height: 100%; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#fff 0%, #f7f9f9 100%); border-radius:12px; padding:1.25rem; box-shadow:0 8px 20px rgba(0,0,0,0.04); }
+.solution-media .media-card { background-size: cover; background-position: center; min-height: 260px; position: relative; overflow: hidden; }
+.media-overlay { position: absolute; inset: 0; display:flex; align-items:flex-end; justify-content:flex-start; padding: 1rem; background: linear-gradient(180deg, rgba(0,0,0,0) 40%, rgba(0,0,0,0.28) 100%); }
+.media-icon { width:56px; height:56px; border-radius:8px; background: rgba(0,0,0,0.55); display:flex; align-items:center; justify-content:center; color:#fff; }
+.media-icon svg { width:28px; height:28px; filter: brightness(0) invert(1); }
+
+/* Section entry animations */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.solution-section .media-card { animation: slideUpFade 700ms ease both; }
+.solution-section .solution-content { animation: slideUpFade 700ms ease both; animation-delay: 120ms; }
+.solution-section.reverse .media-card { animation-delay: 120ms; }
+.solution-section.reverse .solution-content { animation-delay: 0ms; }
+.solution-title { font-size: 1.6rem; color: #0f5250; margin-bottom: 0.5rem; }
+.section-header { display:flex; align-items:center; gap:1rem; }
+.accent-line { width:56px; height:4px; background:linear-gradient(90deg,#008680, #800d07); border-radius:2px; }
+.solution-short { color:#444; margin-bottom:0.85rem; }
+.solution-list { margin-left:1rem; margin-bottom:1rem; color:#444; }
+.solution-actions { display:flex; gap:0.75rem; margin-top:0.75rem; }
+
+.solution-section:hover .media-card { transform: translateY(-6px) scale(1.02); transition: transform 0.45s ease; }
+.solution-section:hover .solution-content { transform: translateY(-6px); transition: transform 0.45s ease; }
+
+.solution-section.reverse .solution-inner { grid-template-columns: 1fr 320px; }
+
+/* CTA band */
+.solutions-cta { background: linear-gradient(90deg, rgba(0,97,92,0.06), rgba(163,16,9,0.03)); padding: 2.25rem 0; margin-top:2rem; }
+.solutions-cta .cta-inner { display:flex; justify-content:space-between; align-items:center; gap:1rem; }
+.solutions-cta h2 { margin:0; color:#083a39; font-size:1.6rem; }
+
+@media (max-width: 900px) {
+  .solution-inner { grid-template-columns: 1fr; }
+  .solution-media { order: -1; }
+  .solutions-cta .cta-inner { flex-direction:column; align-items:flex-start; }
+}
+
+/* Fancy eLearning triangular/overlapped visual */
+.solution-section.elearning .media-card {
+  position: relative;
+  overflow: visible;
+  border-radius: 0; /* remove rounded to match cut shapes */
+}
+.solution-section.elearning .media-card::before {
+  content: '';
+  position: absolute;
+  left: -6%;
+  top: 0;
+  width: 46%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,199,176,0.07), rgba(0,199,176,0.02));
+  clip-path: polygon(0 0, 100% 8%, 86% 100%, 0% 100%);
+  z-index: 1;
+}
+.solution-section.elearning .media-card::after {
+  content: '';
+  position: absolute;
+  right: -6%;
+  top: 8%;
+  width: 36%;
+  height: 84%;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,250,250,0.85));
+  clip-path: polygon(10% 0, 100% 0, 80% 100%, 0 100%);
+  z-index: 1;
+}
+.solution-section.elearning .media-overlay { position: absolute; inset:0; display:flex; align-items:flex-end; justify-content:flex-start; padding:2.5rem 1.2rem; z-index:2; }
+.solution-section.elearning .media-icon { background: linear-gradient(90deg,#6bbf9f,#0e7b6c); box-shadow:0 8px 20px rgba(14,123,108,0.12); }
+
+/* 'Know more' gradient button */
+.btn-knowmore {
+  background: linear-gradient(90deg, #7ac770 0%, #2aa884 100%);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(42,168,132,0.18);
+}
+.btn-knowmore:hover { transform: translateY(-2px); }
+
+@media (max-width: 900px) {
+  .solution-section.elearning .media-card::before,
+  .solution-section.elearning .media-card::after { display:none; }
+  .solution-section.elearning .media-overlay { padding:1rem; }
+}
+
 
 

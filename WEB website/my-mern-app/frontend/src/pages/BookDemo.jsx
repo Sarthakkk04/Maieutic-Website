@@ -14,7 +14,6 @@ export default function BookDemo(){
   });
   const [errors, setErrors] = useState(null);
   const [success, setSuccess] = useState(null);
-  const navigate = useNavigate();
 
   useEffect(()=> {
     // keep URL in sync when selectedCategory changes
@@ -42,6 +41,7 @@ export default function BookDemo(){
     try {
       const payload = { ...form, category: selectedCategory };
       const res = await api.post('/demos', payload);
+      console.log('Submit response:', res.data);
       setSuccess('Saved — thank you! 🎉');
       setForm({
         firstName:'', lastName:'', phone:'', email:'', jobTitle:'', companyName:'', companyWebsite:'', city:'', preferredSolution:'', message:'', consent:false
